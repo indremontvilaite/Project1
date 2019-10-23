@@ -1,14 +1,22 @@
-
+#pip install googletrans
+import random
+import sys
+print(sys.version)
 
 print('Welcome! Find the name for your very new Startup\n Have no ideas? Let us help you!')
 print('Choosing a name can be fun and easy!')
 print('Get names ideas regarding your preferences\nLet\'s answer some question\'s')
 
 def get_k_words():
-    k_words = input('Enter key words about your Startup: ')
-    for str(type(k_words)) != 'str':
-        k_words = input('Wrong format, please enter words: ')
-    k_list = k_words.split()
+    while True:
+        k_words = input('Enter key words about your Startup:\n')
+        print(type(k_words))
+        if len(k_words) < 1:
+            k_words = input('No entry, please enter some words: ')
+        else:
+            k_list = k_words.split()
+            print('Thanks for the key words')
+            break
     return k_list
 
 Answers = ('A', 'B', 'C', 'D','E')
@@ -19,13 +27,15 @@ def get_length():
     n_length = ''
     while True:
         n_length = input('Select a name length by writting a letter:\nA Short names (3-6 letters)\nB Medium names (6-12 letters)\nC Long names (>12 letters)\n')
-        print(n_length)
-        if str(n_length).upper in answers[:3]:
-            return n_length
-            False
+        print(n_length.capitalize())
+        print(answers[:3])
+        if n_length.capitalize() in answers[:3]:
+            print('Thanks for the choise')
+            break
         else:
             print('Please enter a letter from the list\n',answers[:3])
             True
+    return n_length
 
 styles_option = {1:"Person names like Chanel",
                     2:"Rhyming words like SubHub and FireWire",
@@ -38,28 +48,45 @@ def get_style():
         print(str(i)+' '+styles_option[i])
     #print(styles_option)
     while True:
-        n_style=input('Select a name style by writting a number:')
-        if n_style in styles_option.keys():
-            print('Thank you for the answer')
-            break
-        else:
-            print('Please enter a letter from the list')
-            print(str(Numbers[:5]))
+        try:
+            n_style=int(input('Select a name style by writting a number:'))
+            if n_style in styles_option.keys():
+                print('Thank you for the answer')
+                break
+        except:
+            print('Please enter a number from the list')
+            print(Numbers[:5])
     return n_style
 
 def get_number():   
     while True:
-        n_number=input('How many suggestions you would like to get?\nEnter 1-6\n')
-        if n_number  in Numbers:
-            False
-            print('Thank you for the answer')
-            break
-        else:
+        try:
+            n_number=int(input('How many suggestions you would like to get?\nEnter 1-6\n'))
+            if n_number  in Numbers:
+                print('Thank you for the answer')
+                break
+        except:
             print('Please enter suggestions number from the list:')
             print(Numbers)
     return n_number
 
 #get_k_words()
-get_length()
-get_style()
-get_number()
+#get_length()
+#get_style()
+#get_number()
+
+def read_dict_file(filename):
+    with open(filename, 'r') as r:
+        lines = r.read().strip().lower().split('\n')
+    return lines
+
+names_db=read_dict_file("first_names.txt")
+words_db=read_dict_file("usa.txt")
+print(names_db[1:15])
+print(words_db[1:15])
+print(random.choice(names_db))
+
+from googletrans import Translator
+translator = Translator()
+translator.translate('prego')
+
