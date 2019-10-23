@@ -1,4 +1,4 @@
-#pip install googletrans
+
 import random
 import sys
 print(sys.version)
@@ -82,11 +82,18 @@ def read_dict_file(filename):
 
 names_db=read_dict_file("first_names.txt")
 words_db=read_dict_file("usa.txt")
-print(names_db[1:15])
-print(words_db[1:15])
+
+def set_length(text_list):
+    double=[[i,len(i)] for i in text_list]
+    return double
+names_db1=set_length(names_db)
+print(names_db1[1:15][1:15])
+#print(words_db[1:15])
 print(random.choice(names_db))
 
-from googletrans import Translator
-translator = Translator()
-translator.translate('prego')
+#translations = translator.translate(['The quick brown fox', 'jumps over', 'the lazy dog'], dest='ko')
+#pip3 install googletrans
+#from googletrans import Translator
+#translator = Translator()
+#translator.translate('prego')
 
