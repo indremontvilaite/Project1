@@ -93,7 +93,8 @@ print(random.choice(names_db))
 
 #translations = translator.translate(['The quick brown fox', 'jumps over', 'the lazy dog'], dest='ko')
 #pip3 install googletrans
-#from googletrans import Translator
-#translator = Translator()
-#translator.translate('prego')
+from googletrans import Translator
+translator = Translator()
+foreign=translator.translate('prego', dest='hi', src='it')
+print(foreign.text)
 
