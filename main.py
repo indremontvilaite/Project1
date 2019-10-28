@@ -19,8 +19,7 @@ def get_k_words():
             break
     return k_list
 
-Answers = ('A', 'B', 'C', 'D','E')
-Numbers = range(6)
+max_number = 6
 
 def get_length():
     answers = ('A', 'B', 'C', 'D','E')
@@ -46,7 +45,6 @@ def get_style():
     print('Please select a name style:')
     for i in styles_option:
         print(str(i)+' '+styles_option[i])
-    #print(styles_option)
     while True:
         try:
             n_style=int(input('Select a name style by writting a number:'))
@@ -55,25 +53,25 @@ def get_style():
                 break
         except:
             print('Please enter a number from the list')
-            print(Numbers[:5])
+            print(range(1, 5))
     return n_style
 
 def get_number():   
     while True:
         try:
             n_number=int(input('How many suggestions you would like to get?\nEnter 1-6\n'))
-            if n_number  in Numbers:
+            if n_number  in range(max_number):
                 print('Thank you for the answer')
                 break
         except:
             print('Please enter suggestions number from the list:')
-            print(Numbers)
+            print(range(max_number))
     return n_number
 
-#get_k_words()
-#get_length()
-#get_style()
-#get_number()
+k_words=get_k_words()
+w_length=get_length()
+w_style=get_style()
+w_type=get_number()
 
 def read_dict_file(filename):
     with open(filename, 'r') as r:
@@ -87,6 +85,7 @@ def set_length(text_list):
     double=[[i,len(i)] for i in text_list]
     return double
 names_db1=set_length(names_db)
+words_db1=set_length(words_db)
 print(names_db1[1:15][1:15])
 #print(words_db[1:15])
 print(random.choice(names_db))
@@ -95,6 +94,11 @@ print(random.choice(names_db))
 #pip3 install googletrans
 from googletrans import Translator
 translator = Translator()
-foreign=translator.translate('prego', dest='hi', src='it')
+foreign=translator.translate('prego', dest=['lt', 'ja', 'fr', 'eo'], src='it')
 print(foreign.text)
 
+def give_names(w_length, w_style, w_type)
+    answer=[]
+    if w_style==1:
+        for i in range(w_type-1):
+            answer[i]=random.choice()
