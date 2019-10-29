@@ -46,13 +46,13 @@ styles_option = {1:"Person names like Chanel",
                     3:"Real words like Apple and Always",
                     4:"Foreign words like Iki and Toyota",
                     5:"Multiple words like Facebook"}
+
 def get_style():
     print('Please select a name style:')
     for i in styles_option:
         print(str(i)+' '+styles_option[i])
 <<<<<<< HEAD
 =======
-    #print(styles_option)
 >>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
     while True:
         try:
@@ -94,10 +94,6 @@ w_type=get_number()
             print(Numbers)
     return n_number
 
-#get_k_words()
-#get_length()
-#get_style()
-#get_number()
 >>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
 
 def read_dict_file(filename):
@@ -108,34 +104,51 @@ def read_dict_file(filename):
 names_db=read_dict_file("first_names.txt")
 words_db=read_dict_file("usa.txt")
 
-def set_length(text_list):
-    double=[[i,len(i)] for i in text_list]
+def set_length(text_list, minimum, maximum):
+    double=[x for x in text_list if  minimum < len(x) < maximum ]
     return double
-names_db1=set_length(names_db)
-<<<<<<< HEAD
-words_db1=set_length(words_db)
-=======
->>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
-print(names_db1[1:15][1:15])
-#print(words_db[1:15])
-print(random.choice(names_db))
-
-#translations = translator.translate(['The quick brown fox', 'jumps over', 'the lazy dog'], dest='ko')
-#pip3 install googletrans
 <<<<<<< HEAD
 from googletrans import Translator
-translator = Translator()
-foreign=translator.translate('prego', dest=['lt', 'ja', 'fr', 'eo'], src='it')
-print(foreign.text)
 
-def give_names(w_length, w_style, w_type)
+def give_names(k_words, w_length, w_style, w_type)
     answer=[]
+    if w_length.capitalize()=='A':
+        minimum=2
+        maximum=7
+    elif w_length.capitalize()=='B':
+        minimum=6
+        maximum=13
+    else:
+        minimum=12
+        maximum=99
+   
     if w_style==1:
+        names=set_length(names_db, minimum, maximum)
         for i in range(w_type-1):
-            answer[i]=random.choice()
+            answer[i]=random.choice(names)
+    elif w_style==3:
+        words=set_length(words_db, minimum, maximum)
+        for i in range(w_type-1):
+            answer[i]=random.choice(words)
+    elif w_style==4:
+        translator = Translator()
+        foreign=translator.translate(k_words, dest=['lt', 'ja', 'fr', 'eo'], src='en')
+        answer=foreign.text
+    elif w_style==5:
+        words=set_length(words_db, int(minimum/2), int(maximum/2))
+        for i in range(w_type-1):
+            answer[i]=random.choice(words).join(random.choice(words))
+    else:
+        for i in range(w_type-1):
+            answer[i]=random.choice(words_db)
+    return answer
+
+suggestions=give_names(k_words, w_length, w_style, w_type)
+print('1,2,3 - be ready!')
+print('Your Startup can be named:')
+for name in suggestions:
+    print(name)
+
 =======
-#from googletrans import Translator
-#translator = Translator()
-#translator.translate('prego')
 
 >>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
