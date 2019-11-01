@@ -19,7 +19,12 @@ def get_k_words():
             break
     return k_list
 
+<<<<<<< HEAD
 max_number = 6
+=======
+Answers = ('A', 'B', 'C', 'D','E')
+Numbers = range(6)
+>>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
 
 def get_length():
     answers = ('A', 'B', 'C', 'D','E')
@@ -45,6 +50,10 @@ def get_style():
     print('Please select a name style:')
     for i in styles_option:
         print(str(i)+' '+styles_option[i])
+<<<<<<< HEAD
+=======
+    #print(styles_option)
+>>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
     while True:
         try:
             n_style=int(input('Select a name style by writting a number:'))
@@ -53,18 +62,27 @@ def get_style():
                 break
         except:
             print('Please enter a number from the list')
+<<<<<<< HEAD
             print(range(1, 5))
+=======
+            print(Numbers[:5])
+>>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
     return n_style
 
 def get_number():   
     while True:
         try:
             n_number=int(input('How many suggestions you would like to get?\nEnter 1-6\n'))
+<<<<<<< HEAD
             if n_number  in range(max_number):
+=======
+            if n_number  in Numbers:
+>>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
                 print('Thank you for the answer')
                 break
         except:
             print('Please enter suggestions number from the list:')
+<<<<<<< HEAD
             print(range(max_number))
     return n_number
 
@@ -72,6 +90,15 @@ k_words=get_k_words()
 w_length=get_length()
 w_style=get_style()
 w_type=get_number()
+=======
+            print(Numbers)
+    return n_number
+
+#get_k_words()
+#get_length()
+#get_style()
+#get_number()
+>>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
 
 def read_dict_file(filename):
     with open(filename, 'r') as r:
@@ -85,13 +112,17 @@ def set_length(text_list):
     double=[[i,len(i)] for i in text_list]
     return double
 names_db1=set_length(names_db)
+<<<<<<< HEAD
 words_db1=set_length(words_db)
+=======
+>>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
 print(names_db1[1:15][1:15])
 #print(words_db[1:15])
 print(random.choice(names_db))
 
 #translations = translator.translate(['The quick brown fox', 'jumps over', 'the lazy dog'], dest='ko')
 #pip3 install googletrans
+<<<<<<< HEAD
 from googletrans import Translator
 translator = Translator()
 foreign=translator.translate('prego', dest=['lt', 'ja', 'fr', 'eo'], src='it')
@@ -102,3 +133,9 @@ def give_names(w_length, w_style, w_type)
     if w_style==1:
         for i in range(w_type-1):
             answer[i]=random.choice()
+=======
+#from googletrans import Translator
+#translator = Translator()
+#translator.translate('prego')
+
+>>>>>>> d0424f6e156d41485ddb16a449f79fc2356fe893
