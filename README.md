@@ -15,7 +15,7 @@ Program `code` is written in Python 3. The program uses *googletrans* and *rando
 
 More information about googletrans are available [here](https://pypi.org/project/googletrans/).
 
-To start the project, run `main.py` file. You need to answer the given questions in order to recieve suggestions for Startup. *Usa.text* and *first_names.txt* are input files to main.py program and have to be in the same folder as `main.py` file.
+To start the project, run `main.py` file. You need to answer the given questions in order to recieve suggestions for Startup's name. *Usa.text* and *first_names.txt* are input files to main.py program and have to be in the same folder as `main.py` file.
 
 ## Build status
 Startup name selection algorithm is quite simple, not all style options are fully used in the algorithm. 
