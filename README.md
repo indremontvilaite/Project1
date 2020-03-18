@@ -9,11 +9,15 @@ Project task is to provide some name for Startup regarding user preferences. The
 Project output is a list with Startup name suggestions.
 
 ## How to start	
-Program `code` is written in Python 3. The program uses *googletrans* and *random* packages. Before running the program, *googletrans* should be installed. 
+Program `code` is written in Python 3. The program uses *googletrans*, *pronouncing* and *random* packages. Before running the program, *googletrans* and *pronouncing* should be installed. 
 
 ``$ pip install googletrans``
 
-More information about googletrans are available [here](https://pypi.org/project/googletrans/).
+More information about *googletrans* are available [here](https://pypi.org/project/googletrans/).
+
+``$ pip install pronouncing``
+
+More information about *pronouncing* are available [here](https://pypi.org/project/pronouncing/).
 
 To start the project, run `main.py` file. You need to answer the given questions in order to recieve suggestions for Startup's name. *Usa.text* and *first_names.txt* are input files to main.py program and have to be in the same folder as `main.py` file.
 
