@@ -10,3 +10,4 @@ git push -u origin master
 #git show sha number
 #git add .
 #git config --global core.editor
+#git commit -m "what was done" !!!!!!!!!!

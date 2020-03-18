@@ -1,21 +1,28 @@
 import random
 import sys
 from googletrans import Translator
+import pronouncing
+import copy
 
 print('Welcome! Find the name for your very new Startup\n Have no ideas? Let us help you!')
 print('Choosing a name can be fun and easy!')
 print('Get names ideas regarding your preferences\nLet\'s answer some question\'s')
 
-def get_k_words():
-    while True:
-        k_words = input('Enter key words about your Startup:\n')
-        if len(k_words) < 1:
-            k_words = input('No entry, please enter some words: ')
-        else:
-            k_list = k_words.split()
-            print('Thanks for the key words')
-            break
-    return k_list
+class Input_list():
+    def __init__(self, k_words, k_list):
+        self.k_words=k_words
+        self.k_list=k_list
+
+    def get_k_words():
+        while True:
+            k_words = input('Enter key words about your Startup:\n')
+            if len(k_words) < 1:
+                k_words = input('No entry, please enter some words: ')
+            else:
+                k_list = k_words.split()
+                print('Thanks for the key words')
+                break
+        return k_list
 
 max_number = 7
 
@@ -65,7 +72,7 @@ def get_number():
             print(range(max_number))
     return n_number
 
-k_words=get_k_words()
+k_words=Input_list.get_k_words()
 w_length=get_length()
 w_style=get_style()
 w_type=get_number()
@@ -77,6 +84,18 @@ def read_dict_file(filename):
 
 names_db=read_dict_file("first_names.txt")
 words_db=read_dict_file("usa.txt")
+
+class Rythm(object):
+
+    def __init__(self, input_words):
+        self.input_words=input_words
+        
+    def get_rythm(self):
+        answer = []
+        for i in input_words:
+           answer.append.pronouncing.rhymes(i)
+        return answer
+
 
 def set_length(text_list, minimum, maximum):
     double=[x for x in text_list if  minimum < len(x) < maximum ]
@@ -98,6 +117,8 @@ def give_names(k_words, w_length, w_style, w_type):
         names=set_length(names_db, minimum, maximum)
         for i in range(w_type):
             answer.append(random.choice(names))
+    elif w_style==2:
+        answer=copy.deepcopy(Rythm.get_rythm(k_words))
     elif w_style==3:
         words=set_length(words_db, minimum, maximum)
         for i in range(w_type):
@@ -117,6 +138,7 @@ def give_names(k_words, w_length, w_style, w_type):
         for i in range(w_type):
             answer.append(random.choice(words_db))
     return answer
+
 
 suggestions=give_names(k_words, w_length, w_style, w_type)
 print('1,2,3 - be ready!')
