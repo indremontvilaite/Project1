@@ -1,13 +1,18 @@
 import pronouncing
+import copy
+import itertools
+
 print(pronouncing.rhymes("climbing"))
 
-class Rythm(object):
 
-    def __init__(self, input_words):
-        self.input_words=input_words
+class Rythm(object):
         
-    def get_rythm(self):
+    def get_rythm(self, input_words):
         answer = []
         for i in input_words:
-           answer.append.pronouncing.rhymes(i)
+            print(i)
+            answer.append(pronouncing.rhymes(i))
         return answer
+b=["one", "two"]
+a=copy.deepcopy(Rythm().get_rythm(b))
+print(a)
