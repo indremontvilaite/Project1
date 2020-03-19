@@ -1,6 +1,10 @@
 import pronouncing
 import copy
 import itertools
+import nltk
+#nltk.download('wordnet')
+from nltk.corpus import wordnet
+
 
 print(pronouncing.rhymes("climbing"))
 
@@ -13,6 +17,9 @@ class Rythm(object):
             print(i)
             answer.append(pronouncing.rhymes(i))
         return answer
-b=["one", "two"]
+b=["one"]
 a=copy.deepcopy(Rythm().get_rythm(b))
-print(a)
+#print(a)
+
+syns = wordnet.synsets("dog")
+#print(syns)
