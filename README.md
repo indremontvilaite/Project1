@@ -3,22 +3,22 @@
 Project task is to provide some name for Startup regarding user preferences. The user is asked for 4 input questions:
 - Enter key words about Startup
 - Choose one name style from given options: 
-  -1:"Person names like Chanel"
-  -2:"Rhyming words like SubHub and FireWire"
-  -3:"Real words like Apple and Always"
-  -4:"Foreign words like Iki and Toyota"
-  -5:"Multiple words like Facebook"
-  -6:"Misspelled words like Lyft"
+  - 1:"Person names like Chanel"
+  - 2:"Rhyming words like SubHub and FireWire"
+  - 3:"Real words like Apple and Always"
+  - 4:"Foreign words like Iki and Toyota"
+  - 5:"Multiple words like Facebook"
+  - 6:"Misspelled words like Lyft"
 - Choose how long name should be
 - Choose how many suggestion user would like to get from a given range
 
 To generate Startup names various methods are used:
--1 style: program uses input data file *first_names.txt* and selects names randomly regarding given constrains.
--2 style: program uses *pronouncing* package and key words about Startup.
--3 style: program uses input data file *usa.txt* and  *nltk* package.
--4 style: program uses *googletrans* package. Several languages are predefined.
--5 style: program uses input data file *usa.txt* and selects names randomly regarding given constrains.
--6 style: program misspells kye words about Startup.
+- 1 style: program uses input data file *first_names.txt* and selects names randomly regarding given constrains.
+- 2 style: program uses *pronouncing* package and key words about Startup.
+- 3 style: program uses input data file *usa.txt* and  *nltk* package.
+- 4 style: program uses *googletrans* package. Several languages are predefined.
+- 5 style: program uses input data file *usa.txt* and selects names randomly regarding given constrains.
+- 6 style: program misspells kye words about Startup.
 
 Project output is a list with Startup name suggestions.
 
@@ -33,8 +33,10 @@ More information about *googletrans* are available [here](https://pypi.org/proje
 
 More information about *pronouncing* are available [here](https://pypi.org/project/pronouncing/).
 
-``$ pip install --user -U nltk``
-``$ python -m nltk.downloader wordnet``
+```
+$ pip install --user -U nltk
+$ python -m nltk.downloader wordnet
+```
 
 More information about *nltk* are available [here](https://www.nltk.org/install.html).
 
