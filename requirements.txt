@@ -1,0 +1,4 @@
+pip install googletrans
+pip install pronouncing
+pip install --user -U nltk
+pip install --user -U numpy
