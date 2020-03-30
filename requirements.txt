@@ -1,4 +1,27 @@
-pip install googletrans
-pip install pronouncing
-pip install --user -U nltk
-pip install --user -U numpy
+appdirs==1.4.3
+astroid==2.3.2
+attrs==19.3.0
+autopep8==1.5
+black==19.10b0
+certifi==2019.11.28
+chardet==3.0.4
+click==7.1.1
+cmudict==0.4.4
+googletrans==2.4.0
+idna==2.8
+isort==4.3.21
+lazy-object-proxy==1.4.2
+mccabe==0.6.1
+nltk==3.4.5
+numpy==1.18.2
+pathspec==0.7.0
+pronouncing==0.2.0
+pycodestyle==2.5.0
+pylint==2.4.3
+regex==2020.2.20
+requests==2.22.0
+six==1.12.0
+toml==0.10.0
+typed-ast==1.4.0
+urllib3==1.25.6
+wrapt==1.11.2
