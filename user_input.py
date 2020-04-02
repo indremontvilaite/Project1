@@ -1,3 +1,6 @@
+import os
+from airtable import Airtable
+
 class InputList:
     def __init__(self, k_words):
         self.k_words = k_words
@@ -29,28 +32,19 @@ def get_length():
             True
     return n_length
 
-styles_option = {
-    1: "Person names like Chanel",
-    2: "Rhyming words like SubHub and FireWire",
-    3: "Real words like Apple and Always",
-    4: "Foreign words like Iki and Toyota",
-    5: "Multiple words like Facebook",
-    6: "Misspelled words like Lyft",
-}
-
-def get_style():
+def get_style(styles_option):
     print("Please select a name style:")
-    for i in styles_option:
-        print(str(i) + " " + styles_option[i])
+    for i in range(max_number - 1):
+        print(styles_option[i]["fields"]["Style"])
     while True:
         try:
             n_style = int(input("Select a name style by writting a number:"))
-            if n_style in styles_option.keys():
+            if n_style in range(1, max_number):
                 print("Thank you for the answer")
                 break
         except BaseException:
             print("Please enter a number from the list")
-            print(range(1, 5))
+            print(range(1, max_number))
     return n_style
 
 def get_number():

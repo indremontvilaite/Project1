@@ -1,3 +1,4 @@
+airtable-python-wrapper==0.13.0
 appdirs==1.4.3
 astroid==2.3.2
 attrs==19.3.0
