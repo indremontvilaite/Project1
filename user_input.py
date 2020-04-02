@@ -31,12 +31,12 @@ def get_length():
 
 def get_style(styles_option):
     print("Please select a name style:")
-    for i in range(max_number-1):
-        print(styles_option[i]['fields']['Style'])
+    for i in range(max_number - 1):
+        print(styles_option[i]["fields"]["Style"])
     while True:
         try:
             n_style = int(input("Select a name style by writting a number:"))
-            if n_style in range(1,max_number):
+            if n_style in range(1, max_number):
                 print("Thank you for the answer")
                 break
         except BaseException:
