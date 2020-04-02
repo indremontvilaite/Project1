@@ -18,7 +18,7 @@ To generate Startup names various methods are used:
 - 3 style: program uses input data file *usa.txt* and  *nltk* package.
 - 4 style: program uses *googletrans* package. Several languages are predefined.
 - 5 style: program uses input data file *usa.txt* and selects names randomly regarding given constrains.
-- 6 style: program misspells key words about Startup by using romdom functions.
+- 6 style: program misspells key words about Startup by using ramdom functions.
 
 Project output is a list with Startup name suggestions.
 
