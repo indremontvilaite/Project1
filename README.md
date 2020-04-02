@@ -18,7 +18,7 @@ To generate Startup names various methods are used:
 - 3 style: program uses input data file *usa.txt* and  *nltk* package.
 - 4 style: program uses *googletrans* package. Several languages are predefined.
 - 5 style: program uses input data file *usa.txt* and selects names randomly regarding given constrains.
-- 6 style: program misspells kye words about Startup.
+- 6 style: program misspells key words about Startup by using romdom functions.
 
 Project output is a list with Startup name suggestions.
 
@@ -43,7 +43,7 @@ More information about *nltk* are available [here](https://www.nltk.org/install.
 To start the project, run `main.py` file. You need to answer the given questions in order to recieve suggestions for Startup's name. *Usa.txt* and *first_names.txt* are input files to main.py program and have to be in the same folder as `main.py` file.
 
 ## Build status
-Startup name selection algorithm uses a few python packages designed to analyse text. 6 style options are used in the algorithm and 2 output constrains(name's lenght and quantity of suggestions). 
+Startup name selection algorithm uses a few python packages designed to analyse text. 6 style options are used in the algorithm and 2 output constrains(name's lenght and quantity of suggestions). Project uses AIrtable as API for text input file.
 
 
 
