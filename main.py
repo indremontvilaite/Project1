@@ -1,7 +1,6 @@
 import random
 import sys
 from googletrans import Translator
-import pronouncing
 import itertools
 import nltk
 import copy
@@ -12,7 +11,8 @@ import read_file
 import os
 from airtable import Airtable
 
-class Startup_name:
+
+class StartupName:
     def __init__(self, k_words, w_length, w_type, k_synonims, min_max):
         self.k_words = k_words
         self.w_length = w_length
@@ -21,9 +21,11 @@ class Startup_name:
         self.minimum = min_max[0]
         self.maximum = min_max[1]
         self.answer = []
+
     def set_length(self, text_list, minimum, maximum):
         double = [x for x in text_list if minimum < len(x) < maximum]
         return double
+
     def misspell(self):
         answer = []
         for i in self.k_words:
@@ -41,11 +43,13 @@ class Startup_name:
 
             answer.append(i)
         return answer
+
     def style_one(self):
         names = self.set_length(names_db, self.minimum, self.maximum)
         for i in range(self.w_type):
             self.answer.append(random.choice(names))
         return self.answer
+
     def style_two(self):
         a = copy.deepcopy(rythm.Rythm().get_rythm(self.k_words))
         b = list(itertools.chain.from_iterable(a))
@@ -58,6 +62,7 @@ class Startup_name:
         else:
             self.answer = answer0
         return self.answer
+
     def style_three(self):
         synonim = self.set_length(self.k_synonims, self.minimum, self.maximum)
         if len(synonim) < self.w_type:
@@ -66,6 +71,7 @@ class Startup_name:
         for i in range(self.w_type):
             self.answer.append(random.choice(synonim))
         return self.answer
+
     def style_four(self):
         translator = Translator()
         for w in k_words:
@@ -74,11 +80,13 @@ class Startup_name:
                 foreign = translator.translate(w, dest=d, src="en")
                 self.answer.append(foreign.text)
         return self.answer
+
     def style_five(self):
         words = self.set_length(words_db, int(self.minimum / 2), int(self.maximum / 2))
         for i in range(w_type):
             self.answer.append(random.choice(words) + random.choice(words))
         return self.answer
+
     def style_six(self):
         answer0 = self.set_length(self.misspell(), self.minimum, self.maximum)
         if len(answer0) < self.w_type:
@@ -92,6 +100,7 @@ class Startup_name:
             for i in range(self.w_type):
                 self.answer.append(random.choice(answer0))
         return self.answer
+
 
 if __name__ == "__main__":
     base_key = "appo5iwkTjYewQoES"
@@ -114,13 +123,15 @@ if __name__ == "__main__":
     names_db = read_file.read_dict_file("first_names.txt")
     words_db = read_file.read_dict_file("usa.txt")
 
+    startup_name = StartupName(k_words, w_length, w_type, k_synonims, min_max)
+
     styles_functions = {
-        1: Startup_name(k_words, w_length, w_type, k_synonims, min_max).style_one,
-        2: Startup_name(k_words, w_length, w_type, k_synonims, min_max).style_two,
-        3: Startup_name(k_words, w_length, w_type, k_synonims, min_max).style_three,
-        4: Startup_name(k_words, w_length, w_type, k_synonims, min_max).style_four,
-        5: Startup_name(k_words, w_length, w_type, k_synonims, min_max).style_five,
-        6: Startup_name(k_words, w_length, w_type, k_synonims, min_max).style_six,
+        1: startup_name.style_one,
+        2: startup_name.style_two,
+        3: startup_name.style_three,
+        4: startup_name.style_four,
+        5: startup_name.style_five,
+        6: startup_name.style_six,
     }
 
     suggestions = styles_functions[w_style]()

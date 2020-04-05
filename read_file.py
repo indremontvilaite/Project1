@@ -10,6 +10,7 @@ def min_max(w_length):
         maximum = 99
     return [minimum, maximum]
 
+
 def read_dict_file(filename):
     with open(filename, "r") as r:
         lines = r.read().strip().lower().split("\n")
